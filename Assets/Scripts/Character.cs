@@ -24,14 +24,16 @@ public class Character : MonoBehaviour {
     public void ChangeExpression(int value)
     {
         expvalue += value;
-        if (expvalue > 0 && expvalue < 5) {
+        if(expvalue > 0 && expvalue < 5) {
             expression = Enums.Expression.Angry;
         }
-        else if (expvalue < 8) {
+        else if(expvalue < 8) {
             expression = Enums.Expression.Sad;
         }
-        else {
+        else if(expvalue > 8 && expvalue < 10){
             expression = Enums.Expression.Neutral;
+        } else {
+            expression = Enums.Expression.Smiling;
         }
     }
 
