@@ -6,28 +6,19 @@ using UnityEngine.UI;
 public class Controller : MonoBehaviour {
 
     public Character character;
-
-    public Button button_a;
-    public Button button_b;
+    public List<Button> buttons;
+    public Text textSpace;
 
     void Start() {
     }
 
     void Update() {
-        if(Input.GetButtonDown("Fire1")) {
-            character.ChangeExpression(0);
-        } else if(Input.GetButtonDown("Fire2")) {
-            character.ChangeExpression(1);
-        }
 	}
 
-    public void OnClickChange(Button button) {
-        Choice choice = button.GetComponentInChildren<Choice>();
-        character.ChangeExpression(choice.value);
-        Debug.Log(choice.phrase);
-        Text text = button.GetComponentInChildren<Text>();
-        text.text = choice.phrase;
-        
-        character.NextChoices();
+    public void OnClickChange(int i) {
+        string text = character.choices[i].phrase;
+        textSpace.text = text;
+        int value = character.choices[i].value;
+        Debug.Log(text + value);
     }
 }

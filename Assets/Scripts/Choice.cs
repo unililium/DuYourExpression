@@ -14,9 +14,4 @@ public class Choice : MonoBehaviour {
         this.phrase = phrase;
         this.value = value;
     }
-
-    public static explicit operator Choice(GameObject v)
-    {
-        throw new NotImplementedException();
-    }
 }

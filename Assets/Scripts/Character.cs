@@ -6,7 +6,14 @@ public class Character : MonoBehaviour {
 
     private Enums.Expression expression;
     private int expvalue;
-    public Choice[] choices;
+    public List<Choice> choices;
+
+    void Start() {
+        choices.Add(new Choice("cadrega", 1));
+        choices.Add(new Choice("baluba", 2));
+        choices.Add(new Choice("mandragola", 3));
+        choices.Add(new Choice("borraccia", 0));
+    }
 
     public void ChangeExpression(int value)
     {
@@ -17,7 +24,7 @@ public class Character : MonoBehaviour {
         }
     }
 
-    public void NextChoices() {
-
+    public Choice NextChoice() {
+        return choices[Random.Range(0, choices.Count)];
     }
 }
