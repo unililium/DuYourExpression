@@ -1,15 +1,22 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Choice : MonoBehaviour {
 
-    string phrase;
-    int value;
+    public string phrase;
+    public int value;
 
     public Choice(string phrase, int value)
     {
         this.phrase = phrase;
         this.value = value;
+    }
+
+    public static explicit operator Choice(GameObject v)
+    {
+        throw new NotImplementedException();
     }
 }

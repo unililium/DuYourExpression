@@ -16,4 +16,8 @@ public class Character : MonoBehaviour {
                 return;
         }
     }
+
+    public void NextChoices() {
+
+    }
 }
