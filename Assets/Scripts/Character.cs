@@ -4,8 +4,16 @@ using UnityEngine;
 
 public class Character : MonoBehaviour {
 
-    void ChangeExpression(Enums.Expression expression)
-    {
+    private Enums.Expression expression;
+    private int expvalue;
+    public Choice[] choices;
 
+    public void ChangeExpression(int value)
+    {
+        expvalue += value;
+        switch(expvalue) {
+            default:
+                return;
+        }
     }
 }
