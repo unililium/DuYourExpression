@@ -8,16 +8,21 @@ public class Controller : MonoBehaviour {
     public Character character;
     public List<Button> buttons;
     public Text textSpace;
+    public Enums.Expression currentExpression;
+    private int score;
 
     void Start() {
+        currentExpression = Enums.Expression.Happy;
+        score = 0;
     }
 
-    void Update() {
-	}
-
-    public void OnClickChange(int i) {
-        int value = character.activeChoices[i].value;
-        character.NextChoice(i);
+    public void OnClickChange(int exp) {
+        if((Enums.Expression)exp == currentExpression) {
+            score += 50;
+            textSpace.text = "you're happy";
+        } else {
+            score -= 50;
+        }
     }
 
     public void OnHoverShowText(int i) {
@@ -27,5 +32,9 @@ public class Controller : MonoBehaviour {
 
     public void Resetext() {
         textSpace.text = "";
+    }
+
+    void ChangeActiveExpression() {
+        currentExpression = character.expression;
     }
 }

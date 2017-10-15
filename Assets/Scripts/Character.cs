@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Character : MonoBehaviour {
 
-    private Enums.Expression expression;
+    public Enums.Expression expression;
     private int expvalue;
     public List<Choice> activeChoices;
     public List<Choice> choices;
@@ -33,7 +33,7 @@ public class Character : MonoBehaviour {
         else if(expvalue > 8 && expvalue < 10){
             expression = Enums.Expression.Neutral;
         } else {
-            expression = Enums.Expression.Smiling;
+            expression = Enums.Expression.Happy;
         }
     }
 

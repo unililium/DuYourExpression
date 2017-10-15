@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class Enums : MonoBehaviour {
 
-    public enum Expression { Smiling, Sad, Neutral, Angry };
+    public enum Expression {Happy, Sad, Neutral, Angry };
 
 }
