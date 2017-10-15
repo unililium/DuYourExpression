@@ -26,8 +26,8 @@ public class Controller : MonoBehaviour {
     }
 
     public void OnHoverShowText(int i) {
-        string text = character.activeChoices[i].phrase;
-        textSpace.text = text;
+        //string text = character.activeChoices[i].phrase;
+        //textSpace.text = text;
     }
 
     public void Resetext() {
