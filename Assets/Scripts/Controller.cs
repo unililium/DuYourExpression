@@ -3,29 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Controller : MonoBehaviour {
+public class Controller : MonoBehaviour
+{
 
     public Character character;
     public List<Button> buttons;
     public Text textSpace;
+    public Enums.Expression currentExpression;
+    private int score;
 
-    void Start() {
+    void Start()
+    {
+        score = 0;
     }
 
-    void Update() {
-	}
-
-    public void OnClickChange(int i) {
-        int value = character.activeChoices[i].value;
-        character.NextChoice(i);
-    }
-
-    public void OnHoverShowText(int i) {
-        string text = character.activeChoices[i].phrase;
-        textSpace.text = text;
-    }
-
-    public void Resetext() {
-        textSpace.text = "";
+    void Score(int value)
+    {
+        score += value;
+        textSpace.text = "Score: " + score;
     }
 }
