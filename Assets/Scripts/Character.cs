@@ -9,32 +9,48 @@ public class Character : MonoBehaviour {
     public List<Choice> activeChoices;
     public List<Choice> choices;
     public List<string> responses;
-    public List<Animation> animations;
+    Animator anim;
 
     void Start() {
-        choices.Add(new Choice("cadrega", 1));
-        choices.Add(new Choice("baluba", 2));
-        choices.Add(new Choice("mandragola", 3));
-        choices.Add(new Choice("borraccia", 0));
-        for (int i = 0; i < 3; i++) {
-            activeChoices.Add(choices[i]);
+        this.anim = GetComponent<Animator>();
+
+        this.expression = Enums.Expression.Idle;
+    }
+
+    private void Update()
+    {
+        int random = Random.Range(0, 30);
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("idle"))
+        {
+            this.expression = Enums.Expression.Idle;
+            if (random == 1)
+            {
+                anim.Play("smile");
+                this.expression = Enums.Expression.Smile;
+            }
+            else if (random == 2)
+            {
+                anim.Play("wink");
+                this.expression = Enums.Expression.Wink;
+            }
+            else if (random == 3)
+            {
+                anim.Play("wow");
+                this.expression = Enums.Expression.Wow;
+            }
         }
+    }
+
+    private IEnumerator WaitForAnimation(Enums.Expression expression, string animname)
+    {
+        anim.Play(animname);
+        this.expression = expression;
+        yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length + anim.GetCurrentAnimatorStateInfo(0).normalizedTime + 1);
+        this.expression = Enums.Expression.Idle;
     }
 
     public void ChangeExpression(int value)
     {
-        expvalue += value;
-        if(expvalue > 0 && expvalue < 5) {
-            expression = Enums.Expression.Angry;
-        }
-        else if(expvalue < 8) {
-            expression = Enums.Expression.Sad;
-        }
-        else if(expvalue > 8 && expvalue < 10){
-            expression = Enums.Expression.Neutral;
-        } else {
-            expression = Enums.Expression.Happy;
-        }
     }
 
     public void NextChoice(int i) {
