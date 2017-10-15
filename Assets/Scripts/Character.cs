@@ -19,43 +19,25 @@ public class Character : MonoBehaviour {
 
     private void Update()
     {
-        int random = Random.Range(0, 30);
-        if (anim.GetCurrentAnimatorStateInfo(0).IsName("idle"))
+        if(anim.GetCurrentAnimatorStateInfo(0).IsName("idle"))
         {
+            int random = Random.Range(0, 200);
             this.expression = Enums.Expression.Idle;
             if (random == 1)
             {
-                anim.Play("smile");
                 this.expression = Enums.Expression.Smile;
+                anim.Play("smile");
             }
             else if (random == 2)
             {
-                anim.Play("wink");
                 this.expression = Enums.Expression.Wink;
+                anim.Play("wink");
             }
             else if (random == 3)
             {
-                anim.Play("wow");
                 this.expression = Enums.Expression.Wow;
+                anim.Play("wow");
             }
         }
-    }
-
-    private IEnumerator WaitForAnimation(Enums.Expression expression, string animname)
-    {
-        anim.Play(animname);
-        this.expression = expression;
-        yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length + anim.GetCurrentAnimatorStateInfo(0).normalizedTime + 1);
-        this.expression = Enums.Expression.Idle;
-    }
-
-    public void ChangeExpression(int value)
-    {
-    }
-
-    public void NextChoice(int i) {
-        ChangeExpression(activeChoices[i].value);
-        activeChoices[i] = choices[Random.Range(0, choices.Count)];
-
     }
 }

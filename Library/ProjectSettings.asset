@@ -7,7 +7,7 @@ PlayerSettings:
   productGUID: ad8ca5fe8fd6cd14db34d0888ce7657d
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
-  defaultScreenOrientation: 4
+  defaultScreenOrientation: 0
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
@@ -151,7 +151,7 @@ PlayerSettings:
     Android: com.YesWeDU.DuYourExpresssion
   buildNumber: {}
   AndroidBundleVersionCode: 1
-  AndroidMinSdkVersion: 23
+  AndroidMinSdkVersion: 16
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1
   aotOptions: 
